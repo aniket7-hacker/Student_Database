@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Avisekh Mondal | Student Database</title>
+  <link rel="stylesheet" href="student database_management.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <a class="brand" href="#dashboard" data-view="dashboard"><span class="brand-mark">S</span><span>STUDENT DATABASE</span></a>
+      <p class="nav-label">WORKSPACE</p>
+      <nav aria-label="Main navigation">
+        <button class="nav-link active" type="button" data-view="dashboard"><span>▦</span>Dashboard</button>
+        <button class="nav-link" type="button" data-view="students"><span>♙</span>Students</button>
+        <button class="nav-link" type="button" data-view="courses"><span>▤</span>Courses</button>
+        <button class="nav-link" type="button" data-view="reports"><span>◔</span>Reports</button>
+      </nav>
+      <p class="nav-label account-label">ACCOUNT</p>
+      <nav aria-label="Account navigation">
+        <button class="nav-link" type="button" data-view="settings"><span>⚙</span>Settings</button>
+        <button class="nav-link" type="button" data-view="help"><span>?</span>Help Center</button>
+      </nav>
+    </aside>
+    <main>
+      <header class="topbar"><div class="page-intro"><p class="eyebrow"><span class="eyebrow-dot"></span>STUDENT MANAGEMENT</p><h1 id="pageTitle">Dashboard</h1><p class="sub" id="pageSubtitle">A clear view of your student database.</p></div><div class="topbar-actions"><div class="admin-label">Signed in as <strong>Admin</strong></div><button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><span class="theme-label">Light</span><span class="theme-track"><span class="theme-thumb">&#9728;</span></span><span class="theme-label">Dark</span></button><div class="user"><span class="avatar">AD</span><span><b>Admin</b><small>System administrator</small></span></div></div></header>
+
+      <section class="view active" id="dashboardView">
+        <section class="stats">
+          <article class="card stat"><div><p>Total Students</p><strong id="totalStudents">0</strong></div><span class="stat-icon blue">♙</span></article>
+          <article class="card stat"><div><p>Active Students</p><strong id="activeStudents">0</strong></div><span class="stat-icon green">✓</span></article>
+          <article class="card stat"><div><p>New This Month</p><strong id="newStudents">0</strong></div><span class="stat-icon orange">↗</span></article>
+          <article class="card stat"><div><p>Departments</p><strong id="departmentCount">0</strong></div><span class="stat-icon purple">▤</span></article>
+        </section>
+        <section class="content-card"><div class="table-head"><div><h2>Recent students</h2><p>Manage the latest records in your database.</p></div><button class="primary-button" type="button" data-open-form>+ Add Student</button></div><div class="table-wrap"><table><thead><tr><th>STUDENT</th><th>STUDENT ID</th><th>DEPARTMENT</th><th>YEAR</th><th>STATUS</th><th>ACTIONS</th></tr></thead><tbody id="recentRows"></tbody></table><div class="empty" id="recentEmpty">No student records yet.</div></div></section>
+      </section>
+
+      <section class="view" id="studentsView">
+        <section class="content-card"><div class="table-head"><div><h2>All students</h2><p>Search, update, and organise student records.</p></div><div class="actions"><input id="search" type="search" aria-label="Search students" placeholder="Search name, ID, department..."><button class="primary-button" type="button" data-open-form>+ Add Student</button></div></div><div class="table-wrap"><table><thead><tr><th>STUDENT</th><th>STUDENT ID</th><th>DEPARTMENT</th><th>YEAR</th><th>STATUS</th><th>ACTIONS</th></tr></thead><tbody id="studentRows"></tbody></table><div class="empty" id="empty">No students match your search.</div></div></section>
+      </section>
+
+      <section class="view" id="coursesView"><section class="content-card info-panel"><span class="panel-icon">▤</span><h2>Courses</h2><p>Course management is ready for your catalogue. Add course data here when available.</p><button class="primary-button" type="button" data-message="Course creation will be available in the next update.">Create Course</button></section></section>
+      <section class="view" id="reportsView"><section class="content-card report-panel"><h2>Student status report</h2><div class="report-grid"><div><span>Active students</span><strong id="reportActive">0</strong></div><div><span>Pending students</span><strong id="reportPending">0</strong></div><div><span>Departments</span><strong id="reportDepartments">0</strong></div></div><button class="primary-button" type="button" id="downloadReport">Download report</button></section></section>
+      <section class="view" id="settingsView"><section class="content-card settings-panel"><h2>Settings</h2><label class="switch-row">Use compact table rows <input id="compactRows" type="checkbox"><span class="switch"></span></label><button class="danger-button" type="button" id="resetData">Reset demo data</button></section></section>
+      <section class="view" id="helpView"><section class="content-card info-panel"><span class="panel-icon">?</span><h2>Help Center</h2><p>Use Students to add or edit records, then use Reports for a live overview.</p><button class="primary-button" type="button" data-view="students">Open Students</button></section></section>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="student database_management.js"></script>
+</body>
+</html>
